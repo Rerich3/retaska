@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Protucts index{% endblock %}
+
+{% block body %}
+    <h1>Protucts index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Produkt</th>
+                <th>No</th>
+                <th>Cena</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for protuct in protucts %}
+            <tr>
+                <td>{{ protuct.id }}</td>
+                <td>{{ protuct.Produkt }}</td>
+                <td>{{ protuct.no }}</td>
+                <td>{{ protuct.Cena }}</td>
+                <td>
+                    <a href="{{ path('protucts_show', {'id': protuct.id}) }}">show</a>
+                    <a href="{{ path('protucts_edit', {'id': protuct.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('protucts_new') }}">Create new</a>
+{% endblock %}

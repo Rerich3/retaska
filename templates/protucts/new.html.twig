@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}New Protucts{% endblock %}
+
+{% block body %}
+    <h1>Create new Protucts</h1>
+
+    {{ include('protucts/_form.html.twig') }}
+
+    <a href="{{ path('protucts_index') }}">back to list</a>
+{% endblock %}
